@@ -1,0 +1,19 @@
+{
+    "name": "wamesk/utils",
+    "description": "PHP Utils and Helpers.",
+    "keywords": [
+        "utils",
+        "helpers"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0|^8.1|^8.2",
+    },
+    "autoload": {
+        "psr-4": {
+            "Wame\\Utils\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
