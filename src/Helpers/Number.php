@@ -2,7 +2,6 @@
 
 namespace Wame\Utils\Helpers;
 
-
 class Number
 {
     /**
@@ -12,7 +11,7 @@ class Number
      *
      * @return float
      */
-    public static function discount($number, $discount, $type = false)
+    public static function discount($number, $discount, $type = false): float
     {
         if ($type == true) {
             return $number + (($number / 100) * $discount);
@@ -28,7 +27,7 @@ class Number
      *
      * @return float
      */
-    public static function percentage($number1, $number2)
+    public static function percentage($number1, $number2): float
     {
         return (100 * ($number2 - $number1)) / $number1;
     }
@@ -41,7 +40,7 @@ class Number
      *
      * @return float
      */
-    public static function tax($number, $tax, $type = false)
+    public static function tax($number, $tax, $type = false): float
     {
         // With tax
         if ($type == true) {
@@ -62,9 +61,19 @@ class Number
      *
      * @return float
      */
-    public static function calculate($number, $coefficient, $decimal, $round)
+    public static function calculate($number, $coefficient, $decimal, $round): float
     {
         return round($number * $coefficient, $decimal, $round == 0 ? PHP_ROUND_HALF_DOWN : PHP_ROUND_HALF_UP);
     }
 
+
+    /**
+     * @param int|float $number
+     *
+     * @return int|float
+     */
+    public static function normalize($number): int|float
+    {
+        return str_replace(',', '.', $number);
+    }
 }
