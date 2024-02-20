@@ -68,12 +68,12 @@ class Number
 
 
     /**
-     * @param float $number
+     * @param int|float $number
      *
-     * @return float
+     * @return int|float
      */
-    public static function normalize($number): float
+    public static function normalize($number): int|float
     {
-        return (float) str_replace(',', '.', $number);
+        return str_replace(',', '.', $number);
     }
 }
