@@ -2,6 +2,8 @@
 
 namespace Wame\Utils\Helpers;
 
+use function Psl\SecureRandom\float;
+
 class Number
 {
     /**
@@ -68,12 +70,19 @@ class Number
 
 
     /**
-     * @param int|float $number
+     * @param float|int $number
      *
      * @return int|float
      */
-    public static function normalize($number): int|float
+    public static function normalize(float|int $number): int|float
     {
-        return str_replace(',', '.', $number);
+        $return = str_replace(',', '.', $number);
+        return $return;
+        //dd($number, $return);
+
+        return match (gettype($number)) {
+            'float' => (float) $return,
+            'integer' => (int) $return,
+        };
     }
 }
