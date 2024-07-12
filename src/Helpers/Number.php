@@ -70,19 +70,17 @@ class Number
 
 
     /**
-     * @param float|int $number
+     * @param float|int|string $number
      *
-     * @return int|float
+     * @return float
      */
-    public static function normalize(float|int $number): int|float
+    public static function normalize(float|int|string $number): float
     {
-        $return = str_replace(',', '.', $number);
-        return $return;
-        //dd($number, $return);
+        return (float) str_replace(',', '.', $number);
 
-        return match (gettype($number)) {
-            'float' => (float) $return,
-            'integer' => (int) $return,
-        };
+//        return match (gettype($number)) {
+//            'float' => (float) $return,
+//            'integer' => (int) $return,
+//        };
     }
 }
